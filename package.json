@@ -44,6 +44,7 @@
   },
   "devDependencies": {
     "@types/styled-components": "^5.1.26",
-    "react-icons": "^4.4.0"
+    "react-icons": "^4.4.0",
+    "react-router-dom": "6"
   }
 }
