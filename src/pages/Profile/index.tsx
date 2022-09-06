@@ -14,7 +14,7 @@ import {
 } from "./styles";
 import { Loading } from "../../components/Loading";
 
-export const View = () => {
+export const Profile = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState({});
   const [logged, setLogged] = useState(false);

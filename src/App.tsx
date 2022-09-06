@@ -1,3 +1,5 @@
+import { Router } from './routes';
+
 import { Header } from './components/Header';
 import { Home } from './pages/Home';
 
@@ -9,6 +11,7 @@ export function App() {
       <Header />
       <Home />
       <GlobalStyle />
+      <Router />
     </>
   );
 }
