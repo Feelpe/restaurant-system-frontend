@@ -1,9 +1,10 @@
 import Modal from "react-modal";
+import { Navigate } from "react-router-dom";
 
-export const DeleteUserModal = () => {
-  const deleteAccount = () => {
-    navigate("/delete");
-  };
+export function DeleteUserModal () {
+  // const deleteAccount = () => {
+  //   navigate("/delete");
+  // };
 
   return (
     <Modal show={trash} onHide={() => setTrash(!trash)} centered>

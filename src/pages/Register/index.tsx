@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Container, Card, Form, Input, Label, Title } from "./styles";
 
@@ -12,7 +12,7 @@ export const Register = () => {
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
 
     const inputUser = {
@@ -26,11 +26,10 @@ export const Register = () => {
     axios
       .post("/user", inputUser)
       .then((response) => {
-        console.log(response.message);
         navigate("/profile");
       })
       .catch((error) => {
-        console.log(error.message);
+        // console.log(error.message);
       });
   };
 

@@ -1,4 +1,4 @@
-import { Modal } from "react-modal";
+import Modal from "react-modal";
 
 export const ExitModal = () => {
   return (
@@ -19,3 +19,4 @@ export const ExitModal = () => {
     </>
   );
 };
+

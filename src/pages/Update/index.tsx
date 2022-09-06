@@ -1,18 +1,21 @@
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState, useEffect, FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
 import { Card, Container, Form, Input, Label, Title } from "./styles";
 
 export const Update = () => {
   const navigate = useNavigate();
+
   const [email, setEmail] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
+
   const [user, setUser] = useState({});
+
   const [logged, setLogged] = useState(false);
   const [showError, setShowError] = useState(false);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
 
     const updatedUser = {
@@ -30,11 +33,9 @@ export const Update = () => {
     axios
       .patch("/user", updatedUser, config)
       .then((response) => {
-        console.log(response.message);
         navigate("/login");
       })
       .catch((error) => {
-        console.log(error.message);
       });
   };
 
@@ -66,19 +67,19 @@ export const Update = () => {
           <Label>Email</Label>
           <Input
             type="email"
-            placeholder={`${user.email}`}
+            // placeholder={`${user.email}`}
             onChange={(event) => setEmail(event.target.value)}
           />
           <Label>Nome</Label>
           <Input
             type="text"
-            placeholder={`${user.firstName}`}
+            // placeholder={`${user.firstName}`}
             onChange={(event) => setFirstName(event.target.value)}
           />
           <Label>Sobrenome</Label>
           <Input
             type="text"
-            placeholder={`${user.lastName}`}
+            // placeholder={`${user.lastName}`}
             onChange={(event) => setLastName(event.target.value)}
           />
           <button type="submit">Editar</button>

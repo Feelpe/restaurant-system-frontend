@@ -1,12 +1,14 @@
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 
 import { Container, Card, Title, Input, Form } from "./styles";
+
+import { api } from "../../services/api";
 
 export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
 
     const inputLogin = {
@@ -14,12 +16,12 @@ export const Login = () => {
       password,
     };
 
-    axios
+    api
       .post("/auth", inputLogin)
       .then((response) => {
         const token = response.data.token;
         localStorage.setItem("token", token);
-        window.location.reload(false);
+        // window.location.reload(false);
       })
       .catch((error) => {
         console.log(error.message);

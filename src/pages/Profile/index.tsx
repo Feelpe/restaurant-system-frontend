@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -13,6 +12,14 @@ import {
   Text
 } from "./styles";
 import { Loading } from "../../components/Loading";
+
+import { api } from "../../services/api";
+
+interface User {
+  firstName: string;
+  lastName: string;
+  createdAt: string;
+}
 
 export const Profile = () => {
   const navigate = useNavigate();
@@ -40,11 +47,20 @@ export const Profile = () => {
       headers: { Authorization: `Bearer ${token}` },
     };
 
-    axios.get("/auth", config).then((response) => {
-      setUser(response.data);
-      setLogged(true);
-      setIsLoading(false);
-    });
+    // api.get<User[]>("/auth", config)
+    // .then((response) => {
+    //   setUser(response.data);
+    //   setLogged(true);
+    //   setIsLoading(false);
+    // });
+
+    async function loadUser() {
+      const response = await api.get('products', config);
+      const data = response.data.user;
+      setUser(data);
+    }
+
+    loadUser();
   }, [logged]);
 
   return (
@@ -67,7 +83,7 @@ export const Profile = () => {
           </Nav>
         </Card>
         <Card>
-          {isLoading ? (
+          {/* {isLoading ? (
             <Card className="align-items-center border-0">
               <Loading />
             </Card>
@@ -76,7 +92,7 @@ export const Profile = () => {
               <Text>{`${user.firstName} ${user.lastName}`}</Text>
               <span>{user.createdAt}</span>
             </>
-          )}
+          )} */}
         </Card>
       </>
     </Container>
