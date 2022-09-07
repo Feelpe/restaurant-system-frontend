@@ -7,7 +7,10 @@ export function DeleteUserModal () {
   // };
 
   return (
-    <Modal show={trash} onHide={() => setTrash(!trash)} centered>
+    <Modal 
+      show={trash} 
+      onHide={() => setTrash(!trash)} 
+    >
       <Modal.Header closeButton>
         <Modal.Title>Deletar Conta?</Modal.Title>
       </Modal.Header>
