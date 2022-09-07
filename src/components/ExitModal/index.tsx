@@ -1,20 +1,35 @@
+import { FormEvent } from "react";
 import Modal from "react-modal";
+import { Title, Text } from "./styles";
 
-export const ExitModal = () => {
+interface ExitUserModalProps {
+  isOpen: boolean;
+  onRequestClose: () => void;
+}
+
+export const ExitModal = ({ 
+  isOpen, 
+  onRequestClose 
+}: ExitUserModalProps) => {
+  async function handleExit(event: FormEvent) {
+    event.preventDefault();
+    onRequestClose();
+  }
+
   return (
-    <Modal show={logoutM} onHide={() => setLogoutM(!logoutM)} centered>
-      <Modal.Header closeButton>
-        <Modal.Title>Sair da Conta?</Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
-        <h2>Tem Certeza que deseja sair da conta?</h2>
-      </Modal.Body>
-      <Modal.Footer>
-        <button onClick={logout}>
-          Sair da Conta
-        </button>
-      </Modal.Footer>
+    <Modal
+      isOpen={isOpen}
+      onRequestClose={onRequestClose}
+      overlayClassName="react-modal-overlay"
+      className="react-modal-content"
+    >
+      <Title>Sair da Conta?</Title>
+      <Text>Tem Certeza que deseja sair da conta?</Text>
+      <button 
+        onClick={handleExit}
+      >
+        Sair da Conta
+      </button>
     </Modal>
   );
 };
-

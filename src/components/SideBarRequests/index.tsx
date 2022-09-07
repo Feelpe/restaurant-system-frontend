@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 
-import { Loading } from "../Loading/Loading";
+import { Loading } from "../Loading";
 import { Container, Card, Title, Text } from "./styles";
 
 export const Mesa = () => {
@@ -31,13 +31,13 @@ export const Mesa = () => {
           </Card>
         ) : (
           <>
-            {mesa.map((item) => (
+            {/* {mesa.map((item) => (
               <a href={`/mesa/${item.id}`} key={item.id}>
                 <Card className="d-flex m-2 p-3 shadow-sm">
                   <Text>Mesa: {item.mesaNumber}</Text>
                 </Card>
               </a>
-            ))}
+            ))} */}
           </>
         )}
       </Container>

@@ -14,6 +14,7 @@ import {
 import { Loading } from "../../components/Loading";
 
 import { api } from "../../services/api";
+import { DeleteUserModal } from "../../components/DeleteUserModal";
 
 interface User {
   firstName: string;
@@ -24,15 +25,25 @@ interface User {
 export const Profile = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState({});
-  const [logged, setLogged] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
 
-  const [trash, setTrash] = useState(false);
-  const [logoutM, setLogoutM] = useState(false);
+  const [logged, setLogged] = useState(false);
+  // const [isLoading, setIsLoading] = useState(true);
+
+  // const [logoutM, setLogoutM] = useState(false);
 
   const edit = () => {
     navigate("/update");
   };
+
+  const [isDeleteUserModalOpen, setIsDeleteUserModalOpen] = useState(false);
+  
+  function handleOpenDeleteUserModal() {
+    setIsDeleteUserModalOpen(true);
+  }
+
+  function handleCloseDeleteUserModal() {
+    setIsDeleteUserModalOpen(false);
+  }
 
   useEffect(() => {
     const token = localStorage.token;
@@ -55,7 +66,7 @@ export const Profile = () => {
     // });
 
     async function loadUser() {
-      const response = await api.get('products', config);
+      const response = await api.get('/auth', config);
       const data = response.data.user;
       setUser(data);
     }
@@ -73,10 +84,10 @@ export const Profile = () => {
               <button onClick={edit}>
                 <Edit />
               </button>
-              <button onClick={() => setLogoutM(!logoutM)}>
+              {/* <button onClick={() => setLogoutM(!logoutM)}>
                 <Exit />
-              </button>
-              <button onClick={() => setTrash(!trash)}>
+              </button> */}
+              <button onClick={() => handleOpenDeleteUserModal()}>
                 <Trash />
               </button>
             </Nav>
@@ -95,6 +106,11 @@ export const Profile = () => {
           )} */}
         </Card>
       </>
+
+      <DeleteUserModal 
+        isOpen={isDeleteUserModalOpen}
+        onRequestClose={handleCloseDeleteUserModal}
+      />
     </Container>
   );
 };

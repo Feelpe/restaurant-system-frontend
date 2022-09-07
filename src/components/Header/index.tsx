@@ -2,7 +2,11 @@ import { useEffect, useState } from "react";
 
 import { Container, Content, FoodBank } from "./styles";
 
-export const Header = () => {
+interface HeaderProps {
+  onOpenExitUserModal: () => void;
+}
+
+export const Header = ({ onOpenExitUserModal }: HeaderProps) => {
   const token = localStorage.token;
   const [logged, setLogged] = useState(Boolean);
   
@@ -23,9 +27,13 @@ export const Header = () => {
           {logged ? (
             <>
               <a href="/profile">Usuário</a>
-              <a href="/sair">Sair</a>
               <a href="/menu">Menu</a>
               <a href="/mesa">Mesas</a>
+              <button 
+                onClick={onOpenExitUserModal}
+              >
+                Sair
+              </button>
             </>
           ) : (
             <>
