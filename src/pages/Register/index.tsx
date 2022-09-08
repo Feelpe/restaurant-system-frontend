@@ -67,7 +67,7 @@ export const Register = () => {
           placeholder="Confirmação da senha"
           onChange={(event) => setPasswordConfirmation(event.target.value)}
         />
-        <Button type="submit">Criar</Button>
+        <Button type="submit">Enviar</Button>
       </Form>
     </Container>
   );

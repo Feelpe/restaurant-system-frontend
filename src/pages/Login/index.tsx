@@ -1,6 +1,6 @@
 import { FormEvent, useState } from "react";
 
-import { Container, Card, Title, Input, Form } from "./styles";
+import { Container, Title, Form, Label, Input, Button } from "./styles";
 
 import { api } from "../../services/api";
 
@@ -30,32 +30,24 @@ export const Login = () => {
 
   return (
     <Container>
-      <Card>
-        <Title>Login</Title>
-      </Card>
-      <Card>
-        <Form onSubmit={handleSubmit}>
-          <Form>
-            <Form>Email</Form>
-            <Input
-              type="email"
-              placeholder="Digite o email"
-              onChange={(event) => setEmail(event.target.value)}
-              required
-            />
-          </Form>
-          <Form>
-            <Form>Senha</Form>
-            <Input
-              type="password"
-              placeholder="Digite a senha"
-              onChange={(event) => setPassword(event.target.value)}
-              required
-            />
-          </Form>
-          <button type="submit">Entrar</button>
-        </Form>
-      </Card>
+      <Title>Login</Title>
+      <Form onSubmit={handleSubmit}>
+        <Label>Email</Label>
+        <Input
+          type="email"
+          placeholder="Digite o email"
+          onChange={(event) => setEmail(event.target.value)}
+          required
+        />
+        <Label>Senha</Label>
+        <Input
+          type="password"
+          placeholder="Digite a senha"
+          onChange={(event) => setPassword(event.target.value)}
+          required
+        />
+        <Button type="submit">Entrar</Button>
+      </Form>
     </Container>
   );
 };
