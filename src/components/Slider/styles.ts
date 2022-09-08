@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Carousel } from 'react-responsive-carousel';
+import { Carousel } from 'react-bootstrap';
 
 export const Image = styled.img`
   height: 70vh;
@@ -40,3 +40,5 @@ export const Caption = styled(Carousel)`
     border-radius: 5%;
   }
 `;
+
+export const Item = styled.div``;
