@@ -3,10 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import { api } from "../../services/api";
 
-import { Slider } from "../Slider";
-import { photos } from "../../constants/slider";
-
-import { Card, Title, Form, Button, Container } from "./styles";
+import { Card, Title, Form, Button, Container, Summary, Input } from "./styles";
 
 interface Prato {
   id: string;
@@ -53,9 +50,8 @@ export const Menu = () => {
 
   return (
     <Container>
-      <Slider photos={photos} />
       <Form>
-        <input
+        <Input
           type="search"
           placeholder="Encontre um Item do Cardápio"
           value={search}
@@ -63,28 +59,30 @@ export const Menu = () => {
         />
       </Form>
       {logged && <Button onClick={handleNavigate} />}
-      <>
-        {
-          search.length > 0
-            ? filteredMenus.map((item) => {
-                <a href={`/menu/${item.id}`} key={item.id}>
-                  <Card>
-                    <img alt="imagem" src={item.imageUrl} />
-                    <Title>{item.title}</Title>
-                  </Card>
-                </a>;
-              })
-            : menu.map((item) => (
-                <a href={`/menu/${item.id}`} key={item.id}>
-                  <Card>
-                    <img alt="imagem" src={item.imageUrl} />
-                    <Title>{item.title}</Title>
-                  </Card>
-                </a>
-              ))
-          // {isLoading && (<Card><Loading /></Card>)}
-        }
-      </>
+      <Summary>
+        <>
+          {
+            search.length > 0
+              ? filteredMenus.map((item) => {
+                  <a href={`/menu/${item.id}`} key={item.id}>
+                    <Card>
+                      <img alt="imagem" src={item.imageUrl} />
+                      <Title>{item.title}</Title>
+                    </Card>
+                  </a>;
+                })
+              : menu.map((item) => (
+                  <a href={`/menu/${item.id}`} key={item.id}>
+                    <Card>
+                      <img alt="imagem" src={item.imageUrl} />
+                      <Title>{item.title}</Title>
+                    </Card>
+                  </a>
+                ))
+            // {isLoading && (<Card><Loading /></Card>)}
+          }
+        </>
+      </Summary>
     </Container>
   );
 };
