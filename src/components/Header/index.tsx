@@ -28,7 +28,6 @@ export const Header = ({ onOpenExitUserModal }: HeaderProps) => {
             <>
               <a href="/profile">Usuário</a>
               <a href="/menu">Menu</a>
-              <a href="/mesa">Mesas</a>
               <button 
                 onClick={onOpenExitUserModal}
               >
@@ -37,8 +36,8 @@ export const Header = ({ onOpenExitUserModal }: HeaderProps) => {
             </>
           ) : (
             <>
-              <a href="/profile">Entre</a>
-              <a href="/register">Cadastre-se</a>
+              <a href="/login">Entre</a>
+              <a href="/cadastro">Cadastre-se</a>
             </>
           )}
         </Nav>

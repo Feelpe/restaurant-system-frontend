@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 80%;
   padding-top: 1rem;
+
+  width: 70%;
 
   @media (max-width: 1200px) {
     height: 30rem;
