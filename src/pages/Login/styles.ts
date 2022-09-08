@@ -10,19 +10,27 @@ export const Container = styled.div`
   width: 50%;
 
   @media (max-width: 1200px) {
-    height: 30rem;
+    height: 20rem;
   }
-  @media (max-width: 1024px) {
-    height: 25rem;
+  @media (max-width: 1000px) {
+    height: 20rem;
+    width: 60%;
+  }
+  @media (max-width: 950px) {
+    height: 20rem;
+    width: 70%;
   }
   @media (max-width: 600px) {
     height: 20rem;
+    width: 80%;
   }
   @media (max-width: 480px) {
     height: 16rem;
+    width: 80%;
   }
   @media (max-width: 320px) {
     height: 13rem;
+    width: 90%;
   }
 `;
 
