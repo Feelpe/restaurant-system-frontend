@@ -13,7 +13,6 @@ export const GlobalStyle = createGlobalStyle`
     --text-body: #969CB3;
     
     --backHeader: #2B222C;
-    --backFooter: #5e4352;
     --background: #F0F2F5;
 
     --shape: #FFFFFF;

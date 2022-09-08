@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import { Container, Content, FoodBank } from "./styles";
+import { Container, Content, FoodBank, Nav } from "./styles";
 
 interface HeaderProps {
   onOpenExitUserModal: () => void;
@@ -23,7 +23,7 @@ export const Header = ({ onOpenExitUserModal }: HeaderProps) => {
     <Container>
       <Content>
         <a href="/"><FoodBank /></a>
-        <div>
+        <Nav>
           {logged ? (
             <>
               <a href="/profile">Usuário</a>
@@ -41,7 +41,7 @@ export const Header = ({ onOpenExitUserModal }: HeaderProps) => {
               <a href="/register">Cadastre-se</a>
             </>
           )}
-        </div>
+        </Nav>
       </Content>
     </Container>
   );

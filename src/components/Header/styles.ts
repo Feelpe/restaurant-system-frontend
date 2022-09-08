@@ -7,28 +7,36 @@ export const Container = styled.header`
 `;
 
 export const Content = styled.div`
-  max-width: 1120px;
-  margin: 0 auto;
-
-  padding: 1rem 1rem 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 1rem 3em 1rem;
 
   a {
-    color: #f2d974;
-    margin-left: 0.5rem;
+    color: var(--yellow);
     text-decoration: none;
   }
 
   button {
-    background-color: #965d62;
+    background-color: var(--beige);
     :hover {
-      background-color: #c7956d;
+      background-color: var(--backHeader);
     }
   }
 `;
 
+export const Nav = styled.nav`
+  padding: 0rem 1rem;
+
+  a {
+    padding-left: 1rem;
+  }
+`;
+
 export const FoodBank = styled(MdOutlineFoodBank)`
-  font-size: 3rem;
+  height: 3rem;
+  width: 3rem;
 `;
