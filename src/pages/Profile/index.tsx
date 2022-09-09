@@ -2,13 +2,15 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import {
+  Container,
+  Title,
+  OptionBar,
+  NavButton,
+  Button,
   Edit,
   Trash,
   Exit,
-  Container,
-  Card,
-  Nav,
-  Title,
+  UserInfo,
   Text
 } from "./styles";
 import { Loading } from "../../components/Loading";
@@ -36,7 +38,7 @@ export const Profile = () => {
   };
 
   const [isDeleteUserModalOpen, setIsDeleteUserModalOpen] = useState(false);
-  
+
   function handleOpenDeleteUserModal() {
     setIsDeleteUserModalOpen(true);
   }
@@ -66,7 +68,7 @@ export const Profile = () => {
     // });
 
     async function loadUser() {
-      const response = await api.get('/auth', config);
+      const response = await api.get("/auth", config);
       const data = response.data.user;
       setUser(data);
     }
@@ -76,25 +78,22 @@ export const Profile = () => {
 
   return (
     <Container>
-      <>
-        <Card>
-          <Nav>
-            <Title>Conta</Title>
-            <Nav>
-              <button onClick={edit}>
-                <Edit />
-              </button>
-              {/* <button onClick={() => setLogoutM(!logoutM)}>
+      <OptionBar>
+        <Title>Conta</Title>
+        <NavButton>
+          <Button onClick={edit}>
+            <Edit />
+          </Button>
+          {/* <Button onClick={() => setLogoutM(!logoutM)}>
                 <Exit />
-              </button> */}
-              <button onClick={() => handleOpenDeleteUserModal()}>
-                <Trash />
-              </button>
-            </Nav>
-          </Nav>
-        </Card>
-        <Card>
-          {/* {isLoading ? (
+              </Button> */}
+          <Button onClick={() => handleOpenDeleteUserModal()}>
+            <Trash />
+          </Button>
+        </NavButton>
+      </OptionBar>
+      <UserInfo>
+        {/* {isLoading ? (
             <Card className="align-items-center border-0">
               <Loading />
             </Card>
@@ -103,11 +102,10 @@ export const Profile = () => {
               <Text>{`${user.firstName} ${user.lastName}`}</Text>
               <span>{user.createdAt}</span>
             </>
-          )} */}
-        </Card>
-      </>
+        )} */}
+      </UserInfo>
 
-      <DeleteUserModal 
+      <DeleteUserModal
         isOpen={isDeleteUserModalOpen}
         onRequestClose={handleCloseDeleteUserModal}
       />

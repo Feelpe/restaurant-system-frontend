@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState, useEffect, FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
-import { Card, Container, Form, Input, Label, Title } from "./styles";
+import { Container, Title, Form, Label, Input, Button } from "./styles";
 
 export const Update = () => {
   const navigate = useNavigate();
@@ -35,8 +35,7 @@ export const Update = () => {
       .then((response) => {
         navigate("/login");
       })
-      .catch((error) => {
-      });
+      .catch((error) => {});
   };
 
   useEffect(() => {
@@ -59,32 +58,28 @@ export const Update = () => {
 
   return (
     <Container>
-      <Card>
-        <Title>Editar Conta</Title>
-      </Card>
-      <Card>
-        <Form onSubmit={handleSubmit}>
-          <Label>Email</Label>
-          <Input
-            type="email"
-            // placeholder={`${user.email}`}
-            onChange={(event) => setEmail(event.target.value)}
-          />
-          <Label>Nome</Label>
-          <Input
-            type="text"
-            // placeholder={`${user.firstName}`}
-            onChange={(event) => setFirstName(event.target.value)}
-          />
-          <Label>Sobrenome</Label>
-          <Input
-            type="text"
-            // placeholder={`${user.lastName}`}
-            onChange={(event) => setLastName(event.target.value)}
-          />
-          <button type="submit">Editar</button>
-        </Form>
-      </Card>
+      <Title>Editar Conta</Title>
+      <Form onSubmit={handleSubmit}>
+        <Label>Email</Label>
+        <Input
+          type="email"
+          // placeholder={`${user.email}`}
+          onChange={(event) => setEmail(event.target.value)}
+        />
+        <Label>Nome</Label>
+        <Input
+          type="text"
+          // placeholder={`${user.firstName}`}
+          onChange={(event) => setFirstName(event.target.value)}
+        />
+        <Label>Sobrenome</Label>
+        <Input
+          type="text"
+          // placeholder={`${user.lastName}`}
+          onChange={(event) => setLastName(event.target.value)}
+        />
+        <Button type="submit">Editar</Button>
+      </Form>
     </Container>
   );
 };

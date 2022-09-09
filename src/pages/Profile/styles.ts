@@ -10,7 +10,13 @@ export const Container = styled.div`
   align-items: center;
 `;
 
-export const Card = styled.div`
+export const OptionBar = styled.div`
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+  padding: 3rem;
+`;
+
+export const UserInfo = styled.div`
   margin-bottom: 2rem;
   margin-top: 2rem;
   padding: 3rem;
@@ -21,11 +27,13 @@ export const Nav = styled.nav`
   justify-content: space-between;
 `;
 
-export const Title = styled.h1`
-`;
+export const Title = styled.h1``;
 
-export const Text = styled.p`
-`;
+export const Text = styled.p``;
+
+export const NavButton = styled.button``;
+
+export const Button = styled.button``;
 
 export const Edit = styled(BiEdit)`
   color: #c7956d;
