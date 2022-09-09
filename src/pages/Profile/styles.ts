@@ -10,26 +10,13 @@ export const Container = styled.div`
   align-items: center;
 `;
 
+export const Title = styled.h1``;
+
 export const OptionBar = styled.div`
   margin-bottom: 2rem;
   margin-top: 2rem;
   padding: 3rem;
 `;
-
-export const UserInfo = styled.div`
-  margin-bottom: 2rem;
-  margin-top: 2rem;
-  padding: 3rem;
-`;
-
-export const Nav = styled.nav`
-  display: flex;
-  justify-content: space-between;
-`;
-
-export const Title = styled.h1``;
-
-export const Text = styled.p``;
 
 export const NavButton = styled.button``;
 
@@ -64,3 +51,11 @@ export const Exit = styled(BsDoorOpenFill)`
     color: #9a0e24;
   }
 `;
+
+export const UserInfo = styled.div`
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+  padding: 3rem;
+`;
+
+export const Text = styled.p``;

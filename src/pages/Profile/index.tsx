@@ -16,7 +16,7 @@ import {
 import { Loading } from "../../components/Loading";
 
 import { api } from "../../services/api";
-import { DeleteUserModal } from "../../components/DeleteUserModal";
+import { DeleteUserModal } from "../../components/ModalDeleteUser";
 
 interface User {
   firstName: string;

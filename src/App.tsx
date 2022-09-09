@@ -5,7 +5,7 @@ import { Router } from './routes';
 import { Container, GlobalStyle } from "./styles/global";
 
 import { Header } from './components/Header';
-import { ExitModal } from './components/ExitModal';
+import { ExitModal } from './components/ModalExit';
 
 export function App() {
   const [isExitUserModalOpen, setIsExitUserModalOpen] = useState(false);
